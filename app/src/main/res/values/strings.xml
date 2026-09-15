@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SMS転送</string>
+
+    <string name="section_forward">転送設定</string>
+    <string name="label_enabled">SMSをメールへ自動転送する</string>
+
+    <string name="section_smtp">SMTPサーバー設定</string>
+    <string name="hint_host">SMTPホスト（例: smtp.gmail.com）</string>
+    <string name="hint_port">ポート（465 または 587）</string>
+    <string name="label_security">接続方式</string>
+    <string name="radio_ssl">SSL/TLS（465）</string>
+    <string name="radio_starttls">STARTTLS（587）</string>
+    <string name="hint_username">ユーザー名（通常はメールアドレス）</string>
+    <string name="hint_password">パスワード（アプリパスワード）</string>
+
+    <string name="section_mail">メール設定</string>
+    <string name="hint_from">送信元アドレス</string>
+    <string name="hint_to">転送先アドレス（カンマ区切りで複数可）</string>
+    <string name="hint_subject_prefix">件名の先頭に付ける文字（例: [SMS]）</string>
+
+    <string name="button_save">保存</string>
+    <string name="button_test">テスト送信</string>
+
+    <string name="section_permissions">権限・動作設定</string>
+    <string name="button_permission">SMS受信権限を許可する</string>
+    <string name="button_battery">電池の最適化から除外する</string>
+    <string name="status_permission_granted">SMS受信権限: 許可済み</string>
+    <string name="status_permission_denied">SMS受信権限: 未許可（このままでは転送できません）</string>
+    <string name="status_battery_ok">電池の最適化: 除外済み</string>
+    <string name="status_battery_ng">電池の最適化: 有効（転送が遅れることがあります）</string>
+
+    <string name="section_log">動作ログ</string>
+    <string name="button_clear_log">消去</string>
+    <string name="log_empty">（まだログはありません）</string>
+
+    <string name="error_required">必須項目です</string>
+    <string name="error_port">1〜65535 の数値を入力してください</string>
+
+    <string name="toast_saved">保存しました</string>
+    <string name="toast_test_sending">テストメールを送信しています…</string>
+    <string name="toast_test_ok">テストメールを送信しました</string>
+    <string name="toast_test_ng">送信に失敗しました: %1$s</string>
+    <string name="toast_battery_already">すでに電池の最適化から除外されています</string>
+
+    <string name="mail_subject_test">テスト送信</string>
+    <string name="mail_body_test">SMS転送アプリからのテストメールです。このメールが届いていれば設定は正しく動作しています。</string>
+
+    <string name="notif_channel_name">転送エラー</string>
+    <string name="notif_channel_desc">SMSのメール転送に失敗したときに通知します</string>
+    <string name="notif_title">SMSの転送に失敗しました</string>
+    <string name="notif_text">送信元: %1$s</string>
+</resources>
