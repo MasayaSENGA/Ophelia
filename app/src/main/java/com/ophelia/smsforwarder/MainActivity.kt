@@ -13,6 +13,9 @@ import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.updatePadding
 import androidx.lifecycle.lifecycleScope
 import com.google.android.material.textfield.TextInputLayout
 import com.ophelia.smsforwarder.databinding.ActivityMainBinding
@@ -34,6 +37,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        setSupportActionBar(binding.toolbar)
+        applyWindowInsets()
 
         store = SettingsStore(this)
         ErrorNotifier.ensureChannel(this)
@@ -51,6 +56,28 @@ class MainActivity : AppCompatActivity() {
         }
 
         if (!hasSmsPermission()) requestPermissions()
+    }
+
+    /**
+     * Android 15 (targetSdk 35) 以降は常に edge-to-edge で描画され、adjustResize も効かないため、
+     * ステータスバー・ナビゲーションバー・キーボードの分だけ自分で余白を空ける。
+     * キーボード分はルートの下パディングにして ScrollView 自体を縮め、
+     * フォーカス中の入力欄が自動でスクロールされるようにする。
+     */
+    private fun applyWindowInsets() {
+        ViewCompat.setOnApplyWindowInsetsListener(binding.root) { _, insets ->
+            val bars = insets.getInsets(
+                WindowInsetsCompat.Type.systemBars() or WindowInsetsCompat.Type.displayCutout()
+            )
+            val ime = insets.getInsets(WindowInsetsCompat.Type.ime())
+            binding.root.updatePadding(
+                left = bars.left,
+                right = bars.right,
+                bottom = maxOf(bars.bottom, ime.bottom),
+            )
+            binding.appBar.updatePadding(top = bars.top)
+            WindowInsetsCompat.CONSUMED
+        }
     }
 
     override fun onResume() {

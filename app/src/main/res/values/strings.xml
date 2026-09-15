@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">SMS転送</string>
+    <string name="app_name">Ophelia</string>
 
     <string name="section_forward">転送設定</string>
     <string name="label_enabled">SMSをメールへ自動転送する</string>
@@ -44,7 +44,7 @@
     <string name="toast_battery_already">すでに電池の最適化から除外されています</string>
 
     <string name="mail_subject_test">テスト送信</string>
-    <string name="mail_body_test">SMS転送アプリからのテストメールです。このメールが届いていれば設定は正しく動作しています。</string>
+    <string name="mail_body_test">Ophelia（SMS転送アプリ）からのテストメールです。このメールが届いていれば設定は正しく動作しています。</string>
 
     <string name="notif_channel_name">転送エラー</string>
     <string name="notif_channel_desc">SMSのメール転送に失敗したときに通知します</string>

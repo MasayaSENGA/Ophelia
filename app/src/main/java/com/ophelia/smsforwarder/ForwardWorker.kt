@@ -93,7 +93,7 @@ class ForwardWorker(context: Context, params: WorkerParameters) : Worker(context
                 appendLine(body)
                 appendLine()
                 appendLine("--")
-                appendLine("SMS転送アプリより自動送信")
+                appendLine("Ophelia (SMS転送アプリ) より自動送信")
             }
         }
     }
